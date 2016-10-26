@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.main_start_sticky)
     Button startStickyButton;
 
-    @BindView(R.id.main_make_it_stop)
-    Button makeItStopButton;
+    Boolean bStickyService = false;
 
     @BindView(R.id.main_start_not_sticky)
     Button startNotStickyButton;
@@ -34,12 +33,16 @@ public class MainActivity extends AppCompatActivity {
     ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            Toast.makeText(getApplicationContext(), "Main activity bound", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.main_activity_bound, Toast.LENGTH_SHORT).show();
+            bindServiceButton.setText(R.string.main_bound_service);
+            bindServiceButton.setEnabled(false);
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            Toast.makeText(getApplicationContext(), "Main activity unbound", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.main_activity_unbound, Toast.LENGTH_SHORT).show();
+            bindServiceButton.setText(R.string.main_bind_service);
+            bindServiceButton.setEnabled(true);
         }
     };
 
@@ -58,24 +61,15 @@ public class MainActivity extends AppCompatActivity {
         startStickyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startStickyButton.setVisibility(View.GONE);
+                bStickyService = !bStickyService;
+                if (bStickyService) {
+                    startStickyButton.setText(R.string.main_make_it_stop);
+                    startService(stickyServiceIntent);
 
-                startService(stickyServiceIntent);
-
-                if (makeItStopButton != null)
-                    makeItStopButton.setVisibility(View.VISIBLE);
-            }
-        });
-
-        makeItStopButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeItStopButton.setVisibility(View.GONE);
-
-                stopService(stickyServiceIntent);
-
-                if (startStickyButton != null)
-                    startStickyButton.setVisibility(View.VISIBLE);
+                } else {
+                    startStickyButton.setText(R.string.main_start_sticky);
+                    stopService(stickyServiceIntent);
+                }
             }
         });
 

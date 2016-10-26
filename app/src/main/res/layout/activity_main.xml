@@ -17,42 +17,35 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/main.introduction"
         android:id="@+id/main.introduction"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main.start_sticky"
         android:id="@+id/main.start_sticky"
         android:layout_margin="10dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main.make_it_stop"
-        android:id="@+id/main.make_it_stop"
-        android:layout_marginTop="50dp"
-        android:visibility="gone" />
-
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main.start_no_sticky"
         android:id="@+id/main.start_not_sticky"
         android:layout_margin="10dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/main.bind_service"
         android:id="@+id/main.bind_service"
         android:layout_margin="10dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main.bound_activity"
-        android:id="@+id/main.open_bound_activity"
-        android:layout_margin="10dp" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/main.bound_activity"
+    android:id="@+id/main.open_bound_activity"
+    android:layout_margin="10dp" />
 
 </LinearLayout>
