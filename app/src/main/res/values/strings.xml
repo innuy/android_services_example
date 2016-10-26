@@ -5,10 +5,12 @@
     <string name="main.make_it_stop">Make it stop</string>
     <string name="main.start_no_sticky">Start no sticky service</string>
     <string name="main.bind_service">Bind service</string>
+    <string name="main.bound_service">Service bound</string>
     <string name="main.bound_activity">Open bound activity</string>
     <string name="main.introduction">
-        This app is intended to show you the different lifecycles of multiple kind of services.
-        Every part control a different service, none of them do a particular task, only notifies
-        the app about the status of themselves.
+        This app is intended to show you the different lifecycles of various services.\nEach part controls a different service, none of them do a particular task, just notify
+        the app about their status.
     </string>
+    <string name="main_activity_bound">Main activity bound!</string>
+    <string name="main_activity_unbound">Main activity unbound.</string>
 </resources>
