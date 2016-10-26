@@ -32,4 +32,10 @@ public class BoundActivity extends AppCompatActivity {
 
         bindService(boundService, serviceConnection, Context.BIND_AUTO_CREATE);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(serviceConnection);
+    }
 }
